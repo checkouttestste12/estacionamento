@@ -3,61 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Estacionamento - Aeroporto de Guarulhos</title>
+    <title>Bandeira Park - Reserva de Estacionamento Aeroporto de Guarulhos</title>
+    <meta name="description" content="Reserve sua vaga de estacionamento no Aeroporto de Guarulhos com segurança e comodidade. Vagas cobertas e descobertas disponíveis.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Bandeira Park - Aeroporto de Guarulhos</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </nav>
+            <div class="header-content">
+                <h1>🅿️ Bandeira Park - Guarulhos</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#reserva">Reservar</a></li>
+                        <li><a href="#features">Diferenciais</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
     <main>
+        <section class="hero-section" id="home">
+            <div class="container">
+                <h2>Estacionamento Seguro no Aeroporto de Guarulhos</h2>
+                <p>Reserve sua vaga com antecedência e viaje com tranquilidade. Oferecemos segurança 24h, traslado gratuito e os melhores preços da região.</p>
+            </div>
+        </section>
+
         <section id="reserva">
             <div class="container">
-                <h2>Faça sua Reserva</h2>
-                <form id="form-reserva">
-                    <div class="form-group">
-                        <label for="veiculo">Veículo:</label>
-                        <input type="text" id="veiculo" placeholder="Marca e Modelo do Veículo" required>
+                <div class="form-container">
+                    <h3 style="text-align: center; margin-bottom: 2rem; color: #333; font-size: 1.8rem;">Faça sua Reserva</h3>
+                    <form id="form-reserva">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo:</label>
+                                <input type="text" id="nome" placeholder="Seu nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail:</label>
+                                <input type="email" id="email" placeholder="seu@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefone">Telefone:</label>
+                                <input type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="veiculo">Veículo:</label>
+                                <input type="text" id="veiculo" placeholder="Marca e Modelo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="placa">Placa:</label>
+                                <input type="text" id="placa" placeholder="ABC-1234" required maxlength="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="comodidade">Tipo de Vaga:</label>
+                                <select id="comodidade" required>
+                                    <option value="">Selecione o tipo de vaga</option>
+                                    <option value="guarulhos-descoberto">Guarulhos (GRU) - Descoberto</option>
+                                    <option value="guarulhos-coberto">Guarulhos (GRU) - Coberto</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="entrada">Data e Hora de Entrada:</label>
+                                <input type="datetime-local" id="entrada" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="saida">Data e Hora de Saída:</label>
+                                <input type="datetime-local" id="saida" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Calcular Valor da Reserva</button>
+                    </form>
+                    
+                    <div id="resultado" style="display: none; margin-top: 2rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #333; margin-bottom: 1rem;">Resumo da Reserva</h4>
+                        <div id="resumo-detalhes"></div>
+                        <div id="valor-total" style="font-size: 1.2rem; font-weight: bold; color: #667eea; margin-top: 1rem;"></div>
+                        <button type="button" class="btn-primary" style="margin-top: 1rem;" onclick="confirmarReserva()">Confirmar Reserva</button>
                     </div>
-                    <div class="form-group">
-                        <label for="placa">Placa:</label>
-                        <input type="text" id="placa" placeholder="AAA-0000 ou ABC1D23" required>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h3>Por que escolher o Bandeira Park?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚐</div>
+                        <h4>Traslado Gratuito</h4>
+                        <p>Transporte gratuito de ida e volta para o aeroporto, com horários regulares e veículos confortáveis.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="comodidade">Comodidade:</label>
-                        <select id="comodidade" required>
-                            <option value="">Selecione a Comodidade</option>
-                            <option value="guarulhos-descoberto">Guarulhos (GRU) - Descoberto</option>
-                            <option value="guarulhos-coberto">Guarulhos (GRU) - Coberto</option>
-                        </select>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔒</div>
+                        <h4>Segurança 24h</h4>
+                        <p>Monitoramento 24 horas por dia com câmeras de segurança e equipe de vigilância especializada.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="entrada">Data e Hora de Entrada:</label>
-                        <input type="datetime-local" id="entrada" required>
+                    <div class="feature-card">
+                        <div class="feature-icon">💳</div>
+                        <h4>Pagamento Flexível</h4>
+                        <p>Aceitamos cartões de crédito, débito e PIX. Parcelamento disponível para estadias longas.</p>
                     </div>
-                    <div class="form-group">
-                        <label for="saida">Data e Hora de Saída:</label>
-                        <input type="datetime-local" id="saida" required>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏠</div>
+                        <h4>Vagas Cobertas</h4>
+                        <p>Opções de vagas cobertas para proteger seu veículo das intempéries durante sua viagem.</p>
                     </div>
-                    <button type="submit">Calcular Reserva</button>
-                </form>
+                    <div class="feature-card">
+                        <div class="feature-icon">⏰</div>
+                        <h4>Aberto 24h</h4>
+                        <p>Funcionamento ininterrupto para atender voos em qualquer horário, inclusive madrugada.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h4>Melhor Preço</h4>
+                        <p>Preços competitivos com descontos para reservas antecipadas e estadias prolongadas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" style="padding: 3rem 0; text-align: center;">
+            <div class="container">
+                <h3 style="color: white; margin-bottom: 2rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Entre em Contato</h3>
+                <div style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 2rem; max-width: 600px; margin: 0 auto;">
+                    <p style="color: white; margin-bottom: 1rem;">📍 <strong>Endereço:</strong> R. Joaquina de Jesus, 745 - Guarulhos/SP</p>
+                    <p style="color: white; margin-bottom: 1rem;">📞 <strong>Telefone:</strong> (11) 95471-5811</p>
+                    <p style="color: white; margin-bottom: 1rem;">📧 <strong>E-mail:</strong> gru@bandeirapark.com.br</p>
+                    <p style="color: white;">🕐 <strong>Funcionamento:</strong> 24 horas por dia, 7 dias por semana</p>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Bandeira Park. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Bandeira Park. Todos os direitos reservados. | Estacionamento licenciado e segurado.</p>
         </div>
     </footer>
 
